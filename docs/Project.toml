@@ -1,3 +1,4 @@
 [deps]
 CoordinateSystems = "d6f9f838-3d05-4692-b526-a705da911bd0"
+CoordinateSystemsCore = "d6f9f838-3d05-4692-b526-a705da911bd2"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"

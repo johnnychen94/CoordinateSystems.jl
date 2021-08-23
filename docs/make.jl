@@ -1,12 +1,8 @@
 using CoordinateSystems
 using Documenter
 
-DocMeta.setdocmeta!(CoordinateSystems, :DocTestSetup, :(using CoordinateSystems); recursive=true)
-
 makedocs(;
-    modules=[CoordinateSystems],
-    authors="Johnny Chen <johnnychen94@hotmail.com>",
-    repo="https://github.com/johnnychen94/CoordinateSystems.jl/blob/{commit}{path}#{line}",
+    modules=[CoordinateSystems, CoordinateSystemsCore],
     sitename="CoordinateSystems.jl",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
@@ -15,7 +11,10 @@ makedocs(;
     ),
     pages=[
         "Home" => "index.md",
+        "Terminology" => "terminology.md",
+        "API" => "api.md"
     ],
+    doctest=false # this is enabled in Unit Test
 )
 
 deploydocs(;
