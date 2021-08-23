@@ -1,7 +1,10 @@
 name: CI
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - master
+  pull_request:
+
 jobs:
   test:
     name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }} - ${{ github.event_name }}
@@ -49,20 +52,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: julia-actions/setup-julia@v1
-        with:
-          version: '1'
       - run: |
           julia --project=docs -e '
             using Pkg
-            Pkg.develop(PackageSpec(path=pwd()))
+            Pkg.develop([
+              PackageSpec(path=pwd()),
+              PackageSpec(path=joinpath(pwd(), "CoordinateSystemsCore"))
+            ])
             Pkg.instantiate()'
-      - run: |
-          julia --project=docs -e '
-            using Documenter: DocMeta, doctest
-            using CoordinateSystems
-            DocMeta.setdocmeta!(CoordinateSystems, :DocTestSetup, :(using CoordinateSystems); recursive=true)
-            doctest(CoordinateSystems)'
       - run: julia --project=docs docs/make.jl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

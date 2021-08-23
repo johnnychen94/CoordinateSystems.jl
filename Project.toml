@@ -4,14 +4,23 @@ authors = ["Johnny Chen <johnnychen94@hotmail.com>"]
 version = "0.1.0"
 
 [deps]
+CoordinateSystemsCore = "d6f9f838-3d05-4692-b526-a705da911bd2"
+Functors = "d9f16b24-f501-4c13-a1f2-28368ffc5196"
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 
 [compat]
+CoordinateSystemsCore = "0.1"
+Functors = "0.2"
+Reexport = "0.2, 1"
+StaticArrays = "0.12, 1"
 julia = "1"
 
 [extras]
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+TestEnv = "1e6cf692-eddd-4d53-88a5-2d735e33781b"
 
 [targets]
-test = ["Test"]
+test = ["Aqua", "Documenter", "Test", "TestEnv"]

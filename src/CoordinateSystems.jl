@@ -1,13 +1,10 @@
 module CoordinateSystems
 
 using Reexport
-using StaticArrays
 
-include("CoordinateSystemsCore/CoordinateSystemsCore.jl")
-@reexport using .CoordinateSystemsCore
+@reexport using CoordinateSystemsCore
 
-export Translation
-
-include("transformations.jl")
+include("Transformations/Transformations.jl")
+@reexport using .Transformations
 
 end
