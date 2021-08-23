@@ -24,7 +24,7 @@ julia> x = point(0, 1)
 Point([0, 1])
 
 julia> coordinates(x)
-2-element SVector{2, $Int} with indices SOneTo(2):
+2-element $(SVector{2, Int}) with indices SOneTo(2):
  0
  1
 
